@@ -22,9 +22,31 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.SuspendLayout()
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(72, 65)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(81, 17)
+        Me.CheckBox1.TabIndex = 0
+        Me.CheckBox1.Text = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(284, 262)
+        Me.Controls.Add(Me.CheckBox1)
+        Me.Name = "Form1"
         Me.Text = "Form1"
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
     End Sub
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 
 End Class
