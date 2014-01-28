@@ -6,5 +6,6 @@
         Else
             Label1.Text = TextBox1.Text
         End If
+        MsgBox("Bob is boss")
     End Sub
 End Class
