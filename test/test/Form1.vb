@@ -8,4 +8,8 @@
         End If
         MsgBox("Bob is boss")
     End Sub
+
+    Private Sub AssembleRunWDebuggingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AssembleRunWDebuggingToolStripMenuItem.Click
+
+    End Sub
 End Class
