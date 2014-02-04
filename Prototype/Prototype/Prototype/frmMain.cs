@@ -10,8 +10,13 @@ using System.Windows.Forms;
 
 namespace Prototype
 {
+
     public partial class frmMain : Form
     {
+
+        const int MAINFORM_WIDTH = 605;
+        const int MAINFORM_MAX_WIDTH = 955;
+
         public frmMain()
         {
             InitializeComponent();
@@ -134,7 +139,79 @@ namespace Prototype
             this.Close();
         }
 
-        
+        private void txtSource_TextChanged(object sender, EventArgs e)
+        {
+
+            int lineStart = 0;
+            int lineLength = 0;
+            char firstChar;
+            int lastCursorPos = txtSource.SelectionStart;
+
+            // Loop through all the lines
+            for (int i = 0;  i < txtSource.Lines.Count(); i++)
+            {
+
+                lineStart = txtSource.GetFirstCharIndexFromLine(i);
+                lineLength = txtSource.Lines[i].Length;
+                
+                if (lineLength > 0) {
+
+                    firstChar = txtSource.Lines[i][0];
+
+                    // Set color of comment lines
+                    if (firstChar == '*')
+                    {
+
+                        // Entire line
+                        txtSource.Select(lineStart, lineLength); 
+                        txtSource.SelectionColor = Color.Green;
+                        
+                    }
+
+                    // Set color of labels
+                    else if ((firstChar != ' ') && (firstChar != '\t') && (firstChar != '$')) 
+                    {
+
+                        // First 4 characters only
+                        if (lineLength < 4)
+                            txtSource.Select(lineStart, lineLength);
+                        else
+                            txtSource.Select(lineStart, 4); 
+                        txtSource.SelectionColor = Color.Red;
+
+                    }
+
+                }
+
+                txtSource.DeselectAll();
+
+            }
+
+            txtSource.Select(lastCursorPos, lastCursorPos);
+            txtSource.DeselectAll();
+
+        }
+
+        private void menuToolsRegisters_CheckedChanged(object sender, EventArgs e)
+        {
+            if (menuToolsRegisters.Checked == true)
+            {
+
+                this.Size = new Size(MAINFORM_MAX_WIDTH, this.Height);
+                this.Location = new Point(this.Location.X - ((MAINFORM_MAX_WIDTH - MAINFORM_WIDTH) / 2), this.Location.Y);
+                gbRegisters.Visible = true;
+
+            }
+
+            else
+            {
+
+                this.Size = new Size(MAINFORM_WIDTH, this.Height);
+                this.Location = new Point(this.Location.X + ((MAINFORM_MAX_WIDTH - MAINFORM_WIDTH) / 2), this.Location.Y);
+                gbRegisters.Visible = false;
+
+            }
+        }
       
     }
 }
