@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "ADD2",
+            "00000000"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "00000010"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "00000014"}, -1);
             this.menuMain = new System.Windows.Forms.MenuStrip();
@@ -337,20 +340,20 @@
             // menuToolsViewPRT
             // 
             this.menuToolsViewPRT.Name = "menuToolsViewPRT";
-            this.menuToolsViewPRT.Size = new System.Drawing.Size(122, 22);
+            this.menuToolsViewPRT.Size = new System.Drawing.Size(152, 22);
             this.menuToolsViewPRT.Text = "View .PRT";
             this.menuToolsViewPRT.Click += new System.EventHandler(this.menuToolsViewPRT_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(119, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
             // 
             // menuToolsRegisters
             // 
             this.menuToolsRegisters.CheckOnClick = true;
             this.menuToolsRegisters.Name = "menuToolsRegisters";
-            this.menuToolsRegisters.Size = new System.Drawing.Size(122, 22);
+            this.menuToolsRegisters.Size = new System.Drawing.Size(152, 22);
             this.menuToolsRegisters.Text = "Registers";
             this.menuToolsRegisters.CheckedChanged += new System.EventHandler(this.menuToolsRegisters_CheckedChanged);
             // 
@@ -365,12 +368,12 @@
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(119, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(149, 6);
             // 
             // menuToolsOptions
             // 
             this.menuToolsOptions.Name = "menuToolsOptions";
-            this.menuToolsOptions.Size = new System.Drawing.Size(122, 22);
+            this.menuToolsOptions.Size = new System.Drawing.Size(152, 22);
             this.menuToolsOptions.Text = "Options";
             this.menuToolsOptions.Click += new System.EventHandler(this.menuToolsOptions_Click);
             // 
@@ -1040,8 +1043,9 @@
             this.listView1.GridLines = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9,
-            listViewItem10});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3});
             this.listView1.Location = new System.Drawing.Point(604, 445);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(302, 150);
@@ -1051,13 +1055,13 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Variable";
+            this.columnHeader1.Text = "Symbol";
             this.columnHeader1.Width = 108;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Location";
-            this.columnHeader2.Width = 187;
+            this.columnHeader2.Width = 194;
             // 
             // lvMemory
             // 
