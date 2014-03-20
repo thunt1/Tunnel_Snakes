@@ -169,7 +169,7 @@
             this.menuFileNew.Name = "menuFileNew";
             this.menuFileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.menuFileNew.ShowShortcutKeys = false;
-            this.menuFileNew.Size = new System.Drawing.Size(152, 22);
+            this.menuFileNew.Size = new System.Drawing.Size(114, 22);
             this.menuFileNew.Text = "New";
             this.menuFileNew.ToolTipText = "Start a new project (Ctrl + N).";
             this.menuFileNew.Click += new System.EventHandler(this.MenuFileNewClick);
@@ -179,7 +179,7 @@
             this.menuFileOpen.Name = "menuFileOpen";
             this.menuFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.menuFileOpen.ShowShortcutKeys = false;
-            this.menuFileOpen.Size = new System.Drawing.Size(152, 22);
+            this.menuFileOpen.Size = new System.Drawing.Size(114, 22);
             this.menuFileOpen.Text = "Open";
             this.menuFileOpen.ToolTipText = "Open a previously saved project (Ctrl + O).";
             this.menuFileOpen.Click += new System.EventHandler(this.MenuFileOpenClick);
@@ -187,14 +187,14 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(111, 6);
             // 
             // menuFileSave
             // 
             this.menuFileSave.Name = "menuFileSave";
             this.menuFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.menuFileSave.ShowShortcutKeys = false;
-            this.menuFileSave.Size = new System.Drawing.Size(152, 22);
+            this.menuFileSave.Size = new System.Drawing.Size(114, 22);
             this.menuFileSave.Text = "Save";
             this.menuFileSave.ToolTipText = "Save current project (Ctrl + S).";
             this.menuFileSave.Click += new System.EventHandler(this.MenuFileSaveClick);
@@ -202,7 +202,7 @@
             // menuFileSaveAs
             // 
             this.menuFileSaveAs.Name = "menuFileSaveAs";
-            this.menuFileSaveAs.Size = new System.Drawing.Size(152, 22);
+            this.menuFileSaveAs.Size = new System.Drawing.Size(114, 22);
             this.menuFileSaveAs.Text = "Save As";
             this.menuFileSaveAs.ToolTipText = "Save current project.";
             this.menuFileSaveAs.Click += new System.EventHandler(this.MenuFileSaveAsClick);
@@ -210,12 +210,12 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(111, 6);
             // 
             // menuFileImport
             // 
             this.menuFileImport.Name = "menuFileImport";
-            this.menuFileImport.Size = new System.Drawing.Size(152, 22);
+            this.menuFileImport.Size = new System.Drawing.Size(114, 22);
             this.menuFileImport.Text = "Import";
             this.menuFileImport.ToolTipText = "Import .txt source code.";
             this.menuFileImport.Click += new System.EventHandler(this.MenuFileImportClick);
@@ -223,7 +223,7 @@
             // menuFileExport
             // 
             this.menuFileExport.Name = "menuFileExport";
-            this.menuFileExport.Size = new System.Drawing.Size(152, 22);
+            this.menuFileExport.Size = new System.Drawing.Size(114, 22);
             this.menuFileExport.Text = "Export";
             this.menuFileExport.ToolTipText = "Export source code as .txt or .rtf.";
             this.menuFileExport.Click += new System.EventHandler(this.MenuFileExportClick);
@@ -231,7 +231,7 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(111, 6);
             // 
             // menuFilePrint
             // 
@@ -239,7 +239,7 @@
             this.menuFilePrintSource,
             this.menuFilePrintPRT});
             this.menuFilePrint.Name = "menuFilePrint";
-            this.menuFilePrint.Size = new System.Drawing.Size(152, 22);
+            this.menuFilePrint.Size = new System.Drawing.Size(114, 22);
             this.menuFilePrint.Text = "Print";
             // 
             // menuFilePrintSource
@@ -247,7 +247,7 @@
             this.menuFilePrintSource.Name = "menuFilePrintSource";
             this.menuFilePrintSource.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.menuFilePrintSource.ShowShortcutKeys = false;
-            this.menuFilePrintSource.Size = new System.Drawing.Size(152, 22);
+            this.menuFilePrintSource.Size = new System.Drawing.Size(131, 22);
             this.menuFilePrintSource.Text = "Print Source";
             this.menuFilePrintSource.ToolTipText = "Print current source code (Ctrl + P).";
             this.menuFilePrintSource.Click += new System.EventHandler(this.MenuFilePrintSourceClick);
@@ -255,19 +255,19 @@
             // menuFilePrintPRT
             // 
             this.menuFilePrintPRT.Name = "menuFilePrintPRT";
-            this.menuFilePrintPRT.Size = new System.Drawing.Size(152, 22);
+            this.menuFilePrintPRT.Size = new System.Drawing.Size(131, 22);
             this.menuFilePrintPRT.Text = "Print PRT";
             this.menuFilePrintPRT.ToolTipText = "Print associated .PRT file.";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(111, 6);
             // 
             // menuFileExit
             // 
             this.menuFileExit.Name = "menuFileExit";
-            this.menuFileExit.Size = new System.Drawing.Size(152, 22);
+            this.menuFileExit.Size = new System.Drawing.Size(114, 22);
             this.menuFileExit.Text = "Exit";
             this.menuFileExit.ToolTipText = "Exit ASSIST/UNA.";
             this.menuFileExit.Click += new System.EventHandler(this.MenuFileExitClick);
@@ -391,7 +391,7 @@
             // 
             this.menuToolsViewPRT.Name = "menuToolsViewPRT";
             this.menuToolsViewPRT.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.menuToolsViewPRT.Size = new System.Drawing.Size(152, 22);
+            this.menuToolsViewPRT.Size = new System.Drawing.Size(151, 22);
             this.menuToolsViewPRT.Text = "View .PRT";
             this.menuToolsViewPRT.ToolTipText = "View the .PRT file associated with the current project (F12).";
             this.menuToolsViewPRT.Click += new System.EventHandler(this.MenuToolsViewPRTClick);
@@ -399,19 +399,19 @@
             // menuToolsOutput
             // 
             this.menuToolsOutput.Name = "menuToolsOutput";
-            this.menuToolsOutput.Size = new System.Drawing.Size(152, 22);
+            this.menuToolsOutput.Size = new System.Drawing.Size(151, 22);
             this.menuToolsOutput.Text = "Output";
             this.menuToolsOutput.ToolTipText = "Show previous output.";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(148, 6);
             // 
             // menuToolsOptions
             // 
             this.menuToolsOptions.Name = "menuToolsOptions";
-            this.menuToolsOptions.Size = new System.Drawing.Size(152, 22);
+            this.menuToolsOptions.Size = new System.Drawing.Size(151, 22);
             this.menuToolsOptions.Text = "Options";
             this.menuToolsOptions.ToolTipText = "Open the ASSIST/I and ASSIST/UNA options dialog.";
             this.menuToolsOptions.Click += new System.EventHandler(this.MenuToolsOptionsClick);
@@ -495,7 +495,7 @@
             // 
             this.tsSaveSaveAs.Image = ((System.Drawing.Image)(resources.GetObject("tsSaveSaveAs.Image")));
             this.tsSaveSaveAs.Name = "tsSaveSaveAs";
-            this.tsSaveSaveAs.Size = new System.Drawing.Size(152, 22);
+            this.tsSaveSaveAs.Size = new System.Drawing.Size(114, 22);
             this.tsSaveSaveAs.Text = "Save As";
             this.tsSaveSaveAs.ToolTipText = "Save current project.";
             this.tsSaveSaveAs.Click += new System.EventHandler(this.TsSaveAsClick);
@@ -1186,38 +1186,31 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtLines.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(162)))));
             this.txtLines.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLines.Buddy = this.txtSource;
             this.txtLines.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLines.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))));
             this.txtLines.Location = new System.Drawing.Point(12, 90);
-            this.txtLines.Multiline = true;
             this.txtLines.Name = "txtLines";
             this.txtLines.ReadOnly = true;
-            this.txtLines.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLines.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtLines.Size = new System.Drawing.Size(57, 323);
             this.txtLines.TabIndex = 20;
             this.txtLines.TabStop = false;
-            this.txtLines.Text = "1\r\n2\r\n3\r\n4\r\n5\r\n6\r\n7\r\n8\r\n9\r\n10\r\n11\r\n12\r\n13\r\n14\r\n15\r\n16\r\n17\r\n18\r\n19\r\n20\r\n21\r\n22\r\n23" +
-    "\r\n24\r\n25\r\n26\r\n27\r\n28\r\n29\r\n30";
-            this.txtLines.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtLines.Text = "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30";
             // 
             // txtSource
             // 
-            this.txtSource.AcceptsReturn = true;
             this.txtSource.AcceptsTab = true;
             this.txtSource.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSource.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSource.Buddy = this.txtLines;
-            this.txtSource.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSource.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSource.Location = new System.Drawing.Point(52, 90);
-            this.txtSource.Multiline = true;
             this.txtSource.Name = "txtSource";
-            this.txtSource.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtSource.Size = new System.Drawing.Size(656, 323);
             this.txtSource.TabIndex = 0;
+            this.txtSource.Text = "";
+            this.txtSource.WordWrap = false;
             this.txtSource.TextChanged += new System.EventHandler(this.TxtSourceTextChanged);
             this.txtSource.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSourceKeyDown);
             this.txtSource.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSourceKeyPress);
@@ -1354,9 +1347,9 @@
         private System.Windows.Forms.ToolStripMenuItem menuFilePrintSource;
         private System.Windows.Forms.ToolStripMenuItem menuFilePrintPRT;
         private System.Windows.Forms.Label lblColumn;
-        private CustomSourceEditor txtLines;
         private CustomSourceEditor txtSource;
         public System.Windows.Forms.Label lblLine;
+        private CustomSourceEditor txtLines;
         private System.Windows.Forms.TextBox txtColumnRule;
 
     }

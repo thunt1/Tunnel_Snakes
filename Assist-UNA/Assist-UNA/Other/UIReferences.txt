@@ -1,0 +1,7 @@
+﻿Reference 1: 
+Class: CustomSourceEditor
+Method: WndProc
+Author(S):	Hans Passant
+			John Willemse
+Retrieved from: 
+http://stackoverflow.com/questions/3823188/how-can-i-sync-the-scrolling-of-two-multiline-textboxes

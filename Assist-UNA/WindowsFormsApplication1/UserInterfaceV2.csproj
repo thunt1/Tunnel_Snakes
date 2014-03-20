@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{97C807D1-F1FA-4EB8-9BFB-00367F441F8E}</ProjectGuid>
+    <ProjectGuid>{06336C68-7501-486B-A366-0511B461FFD4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Prototype</RootNamespace>
-    <AssemblyName>Prototype</AssemblyName>
+    <RootNamespace>WindowsFormsApplication1</RootNamespace>
+    <AssemblyName>WindowsFormsApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
@@ -35,9 +35,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>tc_logo.ico</ApplicationIcon>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,61 +48,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\CustomSourceTextBox.cs">
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomSourceEditor.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Components\CustomSourceTextBox.Designer.cs">
-      <DependentUpon>CustomSourceTextBox.cs</DependentUpon>
+    <Compile Include="Components\CustomSourceEditor.Designer.cs">
+      <DependentUpon>CustomSourceEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAbout.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAbout.Designer.cs">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="OptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOptions.cs">
+    <Compile Include="OutputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOptions.Designer.cs">
-      <DependentUpon>frmOptions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmOutput.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmOutput.Designer.cs">
-      <DependentUpon>frmOutput.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmViewPRT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmViewPRT.Designer.cs">
-      <DependentUpon>frmViewPRT.cs</DependentUpon>
+    <Compile Include="OutputForm.Designer.cs">
+      <DependentUpon>OutputForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Components\CustomSourceTextBox.resx">
-      <DependentUpon>CustomSourceTextBox.cs</DependentUpon>
+    <Compile Include="ViewPRTForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPRTForm.Designer.cs">
+      <DependentUpon>ViewPRTForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAbout.resx">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <EmbeddedResource Include="Components\CustomSourceEditor.resx">
+      <DependentUpon>CustomSourceEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOptions.resx">
-      <DependentUpon>frmOptions.cs</DependentUpon>
+    <EmbeddedResource Include="OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOutput.resx">
-      <DependentUpon>frmOutput.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmViewPRT.resx">
-      <DependentUpon>frmViewPRT.cs</DependentUpon>
+    <EmbeddedResource Include="OutputForm.resx">
+      <DependentUpon>OutputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -116,6 +110,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ViewPRTForm.resx">
+      <DependentUpon>ViewPRTForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -128,10 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="snake-icon.ico" />
-    <Content Include="tc_logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

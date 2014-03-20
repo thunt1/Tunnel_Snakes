@@ -58,6 +58,13 @@ namespace Assist_UNA
      * 03/17/2014   THH     More code cleanup, modulized some of the functions that are used on 
      *                          multiple points (ex. print, open, save, etc.).
      * 03/17/2014   ACA     Added shortcuts and tooltips. 
+     * 03/19/2014   ACA     Changed to rich text box and fixed most features back.
+     *                      Added minimal, slightly buggy syntax highlighting.
+     *                      Disabled zoom and font size change.
+     *                      Added many data members for instructions colors and strings.
+     *                      Added some convenience data members.
+     *                      Disabled word wrap and disallowed typing past line 79, for highlights.
+     *                      Other various tweaks.
      *  
      *********************************************************************************************/
     public partial class MainForm : Form
@@ -70,15 +77,23 @@ namespace Assist_UNA
         const int DEFAULT_MAX_SIZE = 2700;
         const int MAINFORM_WIDTH = 1048;
         const int MAINFORM_HEIGHT = 648;
-        //const Color COLOR_COMMENTS = Color.Green;
-        //const Color COLOR_INSTRUCTIONS = Color.Blue;
-        //const Color COLOR_MACROS = Color.LightBlue;
 
         /* Private members. */
         private bool isSaved = false;
         private bool projectExists = false;
+        private Color commentColor = Color.Green;
+        private Color defaultColor = Color.Black;
+        private Color directivesColor = Color.Indigo;
+        private Color instructionBranchColor = Color.DarkBlue;
+        private Color instructionRRColor = Color.Blue;
+        private Color instructionRSColor = Color.Turquoise;
+        private Color instructionRXColor = Color.Aqua;
+        private Color instructionSSColor = Color.AliceBlue;
+        private Color macroColor = Color.LightBlue;
         private int cursorColumn;
         private int cursorLine = 0;
+        private int cursorLineIndex = 0;
+        private int cursorLineLength = 0;
         private int maxInstructions = 5000;
         private int maxLines = 500;
         private int maxPages = 100;
@@ -87,6 +102,13 @@ namespace Assist_UNA
         private string fileName = "Unsaved Project";
         private string identifier = "";
         private string pathPRT = "";
+        private string[] directives;
+        private string[] instructionsBranch;
+        private string[] instructionsRR;
+        private string[] instructionsRS;
+        private string[] instructionsRX;
+        private string[] instructionsSS;
+        private string[] macros;
 
         /* Public methods. */
 
@@ -105,13 +127,27 @@ namespace Assist_UNA
         public MainForm()
         {
             InitializeComponent();
+
             this.Size = new Size(MAINFORM_WIDTH, this.Height);
             this.Size = new Size(this.Width, MAINFORM_HEIGHT);
             this.MinimumSize = new Size(MAINFORM_WIDTH, MAINFORM_HEIGHT);
+            
             txtSource.BringToFront();
 
-            /* Start backend. */
+            directives = new string[8] { "START", "END", "DS", "DC", "USING", "SPACE", "EJECT",
+                "TITLE"};
+                
+            instructionsBranch = new string[4] { "BCT", "BCR", "B", "BR"  };
 
+            instructionsRR = new string[6] { "AR", "SR", "LR", "MR", "DR", "CR" };
+
+            instructionsRS = new string[4] { "STM", "LM", "BAL", "BALR"};
+
+            instructionsRX = new string[7] { "A", "S", "L", "M", "D", "C", "ST" };
+
+            instructionsSS = new string[4] { "MVC", "MVI", "CLC", "CLI" };
+
+            macros = new string[4] { "XREAD", "XPRNT", "XDECI", "XDECO" };
         }
 
 
@@ -787,9 +823,14 @@ namespace Assist_UNA
          *****************************************************************************************/
         private void MenuEditPasteClick(object sender, EventArgs e)
         {
+            Clipboard.SetText(Clipboard.GetText().ToUpper());
             txtSource.Paste();
-            RemoveTabs();
-            CheckAllSyntax();
+            
+            /* Format text to standards. */
+            if(Clipboard.GetText().Contains("\t"))
+                RemoveTabs();
+
+            FormatAllText(txtSource.GetFirstCharIndexFromLine(cursorLine) + cursorColumn);
         }
 
 
@@ -1059,9 +1100,10 @@ namespace Assist_UNA
                 projectExists = true;
                 isSaved = true;
 
-                /* Remove all tabs and check for syntax highlighting. */
+                /* Format the text and check for syntax highlighting. */
+                txtSource.Text = txtSource.Text.ToUpper();
                 RemoveTabs();
-                CheckAllSyntax();
+                FormatAllText(0);
             }            
         }
 
@@ -1198,65 +1240,51 @@ namespace Assist_UNA
          *              This includes: 
          *                  setting the isSaved boolean,
          *                  updating the line and column labels, and
-         *                  updating the line numbers.            
+         *                  formatting the text.            
          *  
          *****************************************************************************************/
         private void TxtSourceTextChanged(object sender, EventArgs e)
         {         
-            /* Since the text has been changed, its save is no longer current */
+            /* Since the text has been changed, its save is no longer current. */
             isSaved = false;
             this.Text = "ASSIST/UNA - " + fileName + "*";
 
-            /* Set the new cursor location and update it in the labels */
+            /* Set the new cursor location and update it in the labels. */
             UpdateCursorLocation();
-
-            /* Syntax highlighting. */
             
-
-
-            /* This is the code to generate line numbers (currently buggy). */
-            
-            /*
-            if (cursorOldLine != cursorLine)
-            {
-                txtLines.Clear();
-
-                for (int i = 1; i <= txtSource.Lines.Length; i++)
-                {
-                    if (i > 1)
-                        txtLines.AppendText("\n");
-
-                    txtLines.AppendText(Convert.ToString(i));
-                }
-            }
-            */
+            /* Text formatting. */
+            FormatLineText();
         }
 
 
         /******************************************************************************************
          * 
-         * Name:        CheckAllSyntax
+         * Name:        FormatAllText
          * 
          * Author(s):   Drew Aaron
          *              Michael Beaver
          *              
-         * Input:       N/A
+         * Input:       The index location to place the cursor after formatting (integer).
          * Return:      N/A
-         * Description: This method will check the entire source editor and highlight certain
+         * Description: This method will check the entire source editor and  highlight certain 
          *              syntax strings.
          *  
          *****************************************************************************************/
-        private void CheckAllSyntax()
+        private void FormatAllText(int position)
         {
-            /* Temporary variables for finding syntax to highlight. */
-            char firstChar;
+            for (int i = 0; i < txtSource.Lines.Length; i++)
+            {
+                ;
+            }
 
+            txtSource.Select(position, 0);
+            txtSource.SelectionColor = defaultColor;
         }
 
 
         /******************************************************************************************
          * 
-         * Name:        CheckLineSyntax
+         * Name:        FormatLineText
          * 
          * Author(s):   Drew Aaron
          *              
@@ -1266,19 +1294,114 @@ namespace Assist_UNA
          *              syntax strings.
          *  
          *****************************************************************************************/
-        private void CheckLineSyntax()
+        private void FormatLineText()
         {
             /* Temporary variables for finding syntax to highlight. */
-            string currentLine = txtSource.Lines[cursorLine];
-            char firstChar = currentLine[0];
+            bool colorChanged = false;
+            char firstChar = 'x';
             int lineStart = txtSource.GetFirstCharIndexFromLine(cursorLine);
+            int currentLineNumber = cursorLine;
+            int currentLineIndex = cursorColumn;
+            int highlightStart = 0;
+            string currentLine = "";
+            string instruction = "";
+            
+            if (txtSource.Text != "")
+            {
+                try
+                {
+                    currentLine = txtSource.Text.Substring(lineStart);
+                }
+                catch (Exception e)
+                {
 
+                }
+                    
+                if (currentLine != "")
+                firstChar = currentLine[0];
+            }
+
+            /* Highlight comment lines. */
             if (firstChar == '*')
             {
                 txtSource.Select(lineStart, currentLine.Length);
-                //currentLine.
+                txtSource.SelectionColor = commentColor;
+                colorChanged = true;
             }
+            else
+            {
+                /* Highlight end of line comments */
+                if (currentLine.Length > 15)
+                {
+                    /* Find if there is a space after the last field. */
+                    for (int i = currentLine.Length - 1; i >= 15; i--)
+                    {
+                        if (currentLine[i] == ' ')
+                            highlightStart = lineStart + i;
+                    }
+
+                    /* If so, highlight the rest of the line. */
+                    if (highlightStart > 0)
+                    {
+                        txtSource.Select(highlightStart, currentLine.Length);
+                        txtSource.SelectionColor = commentColor;
+                        colorChanged = true;
+                    }
+
+                }
+
+                /* Highlight instructions. */
+                if ((currentLineIndex > 9) && (currentLine.Length < 15))
+                {
+                    instruction = currentLine.Substring(8, currentLine.Length - 8);
+
+                    highlightStart = lineStart + 9;
+
+                    foreach (string line in instructionsRR)
+                    {
+                        if ((instruction.Substring(1, 1) != " ") && (instruction.Substring(0, 1) == " "))
+                        {
+                            if (instruction.Length > line.Length)
+                            {
+                                if (line.Contains(instruction.Substring(1, line.Length)))
+                                {
+                                    txtSource.Select(highlightStart, 5);
+                                    txtSource.SelectionColor = instructionRRColor;
+                                    colorChanged = true;
+                                }
+                            }
+
+                            else
+                            {
+                                if (line.Contains(instruction.Substring(1, currentLine.Length - 9)))
+                                {
+                                    txtSource.Select(highlightStart, 5);
+                                    txtSource.SelectionColor = instructionRRColor;
+                                    colorChanged = true;
+                                }
+                            }
+                            
+                        }
+
+                    }
+
+                    if (colorChanged == false)
+                    {
+                        txtSource.Select(highlightStart, 5);
+                        txtSource.SelectionColor = defaultColor;
+                        colorChanged = true;
+                    }
+                }
+            }
+
+            /* Change text color back to default afterwards. */
+            if (colorChanged)
+            {
                 
+                txtSource.Select(lineStart + currentLineIndex, 0);
+                txtSource.SelectionColor = defaultColor;
+            }
+
         }
 
 
@@ -1552,6 +1675,10 @@ namespace Assist_UNA
         {
             /* Currently used for testing purposes */
             SetRegister0(Convert.ToString(txtSource.Lines.Length));
+
+            /* Do not allow font size change shortcut. */
+            e.SuppressKeyPress = e.Control && e.Shift & 
+                (e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod);
         }
 
 
@@ -1569,11 +1696,19 @@ namespace Assist_UNA
          *****************************************************************************************/
         private void UpdateCursorLocation()
         {
+            cursorLineIndex = txtSource.GetFirstCharIndexOfCurrentLine();
+            
             cursorLine =
-                txtSource.GetLineFromCharIndex(txtSource.GetFirstCharIndexOfCurrentLine());
+                txtSource.GetLineFromCharIndex(cursorLineIndex);
 
             cursorColumn = txtSource.SelectionStart -
                 txtSource.GetFirstCharIndexFromLine(cursorLine);
+
+            if (txtSource.Text == "")
+                cursorLineLength = 0;
+
+            else
+                cursorLineLength = txtSource.Lines[cursorLine].Length;
 
             lblLine.Text = "Line: " + Convert.ToString(cursorLine + 1);
             lblColumn.Text = "Column: " + Convert.ToString(cursorColumn + 1);
@@ -1610,7 +1745,7 @@ namespace Assist_UNA
 
         /******************************************************************************************
          * 
-         * Name:        TxtSourceKeyDown
+         * Name:        TxtSourceKeyUp
          * 
          * Author(s):   Drew Aaron
          *              
@@ -1630,7 +1765,7 @@ namespace Assist_UNA
             if (e.KeyCode == Keys.Tab)
             {
                 /* On tab press, add enough spaces to get to the next tab stop line. */
-                if (cursorColumn <= 9)
+                if (cursorColumn <= 8)
                 {
                     for (int i = cursorColumn; i < 9; i++)
                         txtSource.SelectedText = " ";
@@ -1640,6 +1775,17 @@ namespace Assist_UNA
                 {
                     for (int i = cursorColumn; i < 15; i++)
                         txtSource.SelectedText = " ";
+                }
+            }
+
+            if (e.KeyCode == Keys.Return)
+            {
+                
+                //if ((cursorLine <= txtSource.Lines.Length - 1) && (txtSource.Lines[cursorLine][0] != '*'))
+                {
+                    txtSource.Select(cursorLineIndex, cursorLineLength);
+                    txtSource.SelectionColor = defaultColor;
+                    txtSource.Select(cursorLineIndex, 0);
                 }
             }
         }
@@ -1672,8 +1818,9 @@ namespace Assist_UNA
             }
             
             /* Remove all tabs and check for syntax highlighting. */
+            txtSource.Text = txtSource.Text.ToUpper();
             RemoveTabs();
-            CheckAllSyntax();
+            FormatAllText(0);
         }
 
 
@@ -1690,7 +1837,9 @@ namespace Assist_UNA
          *****************************************************************************************/
         private void RemoveTabs()
         {
-            txtSource.Text = Regex.Replace(txtSource.Text,"\t", " ");
+            int pos = txtSource.GetFirstCharIndexFromLine(cursorLine) + cursorColumn;
+            txtSource.Text = txtSource.Text.Replace("\t", " ");
+            txtSource.Select(pos, 0);
         }
 
 
@@ -1740,6 +1889,13 @@ namespace Assist_UNA
         {
             /* This will disable the normal tab key function. */
             if (e.KeyChar == '\t')
+                e.Handled = true;
+
+            /* Force uppercase characters. */
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+
+            /* Do not allow typing past line 79. */
+            if ((cursorColumn >= 79) && (e.KeyChar != '\n') && (e.KeyChar != Convert.ToChar(Keys.Back)))
                 e.Handled = true;
         }
 
@@ -1794,6 +1950,5 @@ namespace Assist_UNA
         {
             PrintSource();
         }
-                
     }
 }

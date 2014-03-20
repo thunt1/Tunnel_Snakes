@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{04136E00-7FBB-436A-AD9B-84208EF8BA1C}</ProjectGuid>
+    <ProjectGuid>{FC55B907-5330-47A9-BD6F-9CE054CB7C17}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Processing</RootNamespace>
-    <AssemblyName>Processing</AssemblyName>
+    <RootNamespace>TravisTestProject</RootNamespace>
+    <AssemblyName>TravisTestProject</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
@@ -35,11 +35,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>TravisTestProject.TravisTestDriver</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExampleClass.cs" />
+    <Compile Include="TranslatorTest.cs" />
+    <Compile Include="TravisTestDriver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
